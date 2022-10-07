@@ -1,0 +1,526 @@
+/* ----------TYPOGRAPHY----------- */
+#login-form {
+    font-size: 2.5rem;
+}
+#login-form button {
+    font-size: 1.25rem;
+}
+header {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#todo-form label {
+    font-size: 1.5rem;
+}
+#todo-wrapper ul {
+    font-size: 1.2rem;
+}
+#music-current-time,
+#music-end-time {
+    font-size: 0.5rem;
+}
+/* ----------LAYOUTS----------- */
+body {
+    width: 100vw;
+    height: 100vh;
+}
+#login-form {
+    width: 50%;
+    height: 250px;
+    margin: 0 auto;
+    transform: translateY(calc(50vh - 125px));
+    min-width: 350px;
+}
+header {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    min-width: 350px;
+}
+#main-content {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#main-content #todo-wrapper {
+    width: 50%;
+}
+#main-content #bookmark-wrapper {
+    width: 10%;
+    min-width: 280px;
+    max-height: 500px;
+}
+#main-content aside:last-child {
+    width: 0.15%;
+    min-width: 500px;
+}
+/* #main-content #bookmark-wrapper {
+    margin-right: 100px;
+}
+#main-content aside:last-child {
+    margin-left: 100px;
+} */
+footer {
+    height: 10%;
+    width: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* ----------LOGIN-FORM----------- */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#login-form label {
+    margin-bottom: 15px;
+}
+#login-form input {
+    border: 0;
+    border-bottom: 1px solid black;
+    background: none;
+    text-align: center;
+    font-size: 1.5rem;
+}
+#login-form input::placeholder {
+    color: black;
+}
+#login-form input:focus::placeholder {
+    color: transparent;
+}
+#login-form button {
+    border: 0;
+    background: none;
+    margin-top: 20px;
+    color: black;
+    transition: color 0.5s ease-in-out;
+}
+#login-form button:hover {
+    color: red;
+}
+/* ----------MAIN-CONTENT----------- */
+
+/* ----------ASIDE----------- */
+/* Bookmark */
+#bookmark-wrapper {
+    background-color: rgba(192, 192, 192, 0.5);
+    box-sizing: border-box;
+    overflow-y: scroll;
+    padding: 10px;
+}
+#bookmark-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+#bookmark-container li {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
+
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    box-sizing: border-box;
+
+    position: relative;
+
+    transition: background-color 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+#bookmark-container li:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+#bookmark-container li > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    padding: 5px;
+}
+#bookmark-container li > a > img {
+    width: 32px;
+    height: 32px;
+}
+#bookmark-container li > a > span {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+#bookmark-container li > i {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    right: -10px;
+    top: -10px;
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+#bookmark-container li:hover {
+    cursor: pointer;
+}
+#bookmark-container li:hover > i {
+    opacity: 1;
+}
+#bookmark-container button {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    justify-self: center;
+}
+#bookmark-container li:hover button {
+    background: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+/* Bookmark Modal */
+#bookmark-modal {
+    width: 300px;
+    height: 150px;
+    color: white;
+    position: absolute;
+    z-index: 2;
+    animation: initialAnimation 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+#bookmark-modal form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 15px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.8);
+}
+#bookmark-modal form .field label {
+    display: inline-block;
+    width: 50px;
+}
+#bookmark-modal form .field input {
+    width: 200px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid black;
+}
+#bookmark-modal form .field input:focus {
+    outline: none;
+    border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
+#bookmark-modal form .field input::placeholder {
+    color: rgba(0, 0, 0, 0.8);
+}
+#bookmark-modal form .field input:focus::placeholder {
+    color: transparent;
+}
+#bookmark-modal form div:last-child {
+    align-self: flex-end;
+}
+#bookmark-modal form div:last-child button {
+    display: inline-block;
+    width: 80px;
+    margin-left: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+}
+#bookmark-modal form div:last-child button:first-child:hover {
+    background: rgba(255, 0, 0, 0.6);
+}
+#bookmark-modal form div:last-child button:last-child:hover {
+    background: rgba(0, 255, 0, 0.6);
+}
+#bookmark-overlay {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+/* todo list */
+#todo-wrapper {
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+#todo-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+#todo-form .field {
+    margin-bottom: 15px;
+}
+#todo-form input:focus::placeholder {
+    color: transparent;
+}
+#todo-form input::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+#todo-form input {
+    width: 300px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+#todo-form button {
+    background: transparent;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+#todo-form button:hover {
+    transform: scale(1.5);
+}
+#todo-wrapper ul {
+    display: flex;
+    flex-direction: column;
+    max-height: 30vh;
+    overflow-y: scroll;
+
+    padding: 10px;
+    box-sizing: border-box;
+}
+#todo-wrapper ul:last-child {
+    border-top: 1px solid black;
+}
+#todo-wrapper span {
+    margin-top: 10px;
+}
+#todo-wrapper ul li {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    animation: initialAnimation 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+    transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+#todo-wrapper ul li:hover {
+    cursor: pointer;
+}
+/* check icon, remove icon */
+#todo-wrapper ul li i:first-child,
+#todo-wrapper ul li i:last-child {
+    flex: 0 1 30px;
+    transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+#todo-wrapper ul li i:first-child:hover,
+#todo-wrapper ul li i:last-child:hover {
+    color: rgba(255, 0, 0, 0.6);
+}
+#todo-wrapper ul li p {
+    flex: 1 0;
+}
+/* ASIDE */
+#main-content aside:last-child {
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    max-height: 500px;
+    justify-content: space-between;
+    align-items: center;
+}
+/* quote */
+#quote-wrapper {
+    width: 500px;
+    height: 200px;
+    overflow: hidden;
+}
+#quote-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+#quote-container li {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px;
+}
+#quote-container li p:last-child {
+    text-align: right;
+}
+#quote-container li p:first-child {
+    text-align: center;
+}
+#quote-container li p:first-child,
+#quote-container li p:last-child {
+    margin-top: 50px;
+    width: 100%;
+}
+/* weather */
+#weather-wrapper {
+    width: 250px;
+    height: 200px;
+}
+#weather-loading {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#weather-loading i {
+    font-size: 4rem;
+    animation: rotating 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+#weather-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+}
+#weather-container #weather-date {
+    color: tomato;
+    font-size: 1.1rem;
+}
+#weather-container #weather-city {
+    font-size: 2rem;
+}
+#weather-container .field:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#weather-container .field:nth-child(3) {
+    align-self: center;
+    margin-bottom: 15px;
+}
+#weather-temperature {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 2rem;
+}
+#weather-temperature > * {
+    margin-right: 10px;
+}
+#temperature {
+    font-size: 2rem;
+}
+/* ----------FOOTER----------- */
+#music-container {
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+#music-container h3 {
+    height: 1rem;
+    margin-bottom: 3px;
+}
+#music-controller {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+#music-controller li:not(:last-child) {
+    width: 27px;
+    height: 27px;
+}
+#music-controller li:not(:last-child) i {
+    font-size: 27px;
+    width: 100%;
+    height: 100%;
+}
+#music-volume-slider {
+    position: absolute;
+    transform: translateY(-50%);
+    height: 100%;
+    top: 50%;
+    left: 105%;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+#music-volume-slider input {
+    height: 100%;
+    line-height: 100%;
+}
+#music-current-time,
+#music-end-time {
+    display: inline-block;
+    width: 80px;
+}
+/* ----------CLASS----------- */
+.hidden {
+    display: none !important;
+}
+.box {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
+    background-color: rgba(192, 192, 192, 0.8);
+    border-radius: 15px;
+}
+.text-decoration {
+    text-decoration: line-through;
+}
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.rotate {
+    animation: rotating 2s linear infinite;
+}
+.active {
+    color: tomato !important;
+}
+@keyframes initialAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

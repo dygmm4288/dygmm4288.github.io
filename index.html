@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Momentum</title>
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="responsive.css"
+            media="screen and (max-width:1599px)"
+        />
+        <script
+            src="https://kit.fontawesome.com/651455b82a.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <header class="hidden">
+            <div id="greeting-wrapper">
+                <h2 id="clock">00:00:00</h2>
+                <h1 id="greeting"></h1>
+            </div>
+            <div id="aside-child-wrapper"></div>
+        </header>
+
+        <form id="login-form" class="box">
+            <label for="login-username">Hi! What Your name</label>
+            <input
+                id="login-username"
+                type="text"
+                placeholder="Please write your name"
+                required
+                maxlength="15"
+            />
+            <button type="submit">Log In</button>
+        </form>
+
+        <div id="main-content" class="hidden">
+            <aside id="bookmark-wrapper" class="box">
+                <ul id="bookmark-container"></ul>
+            </aside>
+            <!-- End of Bookmark-Wrapper -->
+            <div id="todo-wrapper" class="box">
+                <form id="todo-form">
+                    <div class="field">
+                        <label for="todo-input">
+                            What is your main focus for today?
+                        </label>
+                    </div>
+                    <div class="field">
+                        <input
+                            id="todo-input"
+                            type="text"
+                            placeholder="Write Todo"
+                            required
+                        />
+                        <button type="submit">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <ul id="todo-container"></ul>
+
+                <ul id="complete-todo-container"></ul>
+            </div>
+            <aside>
+                <div id="quote-wrapper" class="box">
+                    <ul id="quote-container"></ul>
+                </div>
+                <div id="weather-wrapper" class="box">
+                    <div id="weather-loading">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <!-- #weather-loading -->
+                    <div id="weather-container" class="hidden">
+                        <div class="field" id="weather-infomation">
+                            <p id="weather-date"></p>
+                            <p id="weather-city"></p>
+                        </div>
+                        <div class="field">
+                            <img id="weather-icon" alt="weather-icon" />
+                            <div id="weather-temperature">
+                                <p id="temperature"></p>
+                                <a id="celsius" href="#" class="active"
+                                    >&#8451;</a
+                                >
+                                <a id="Fahrenheit" href="#">&#8457;</a>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <span id="weather-feel-like"></span>
+                            <span id="weather-description"></span>
+                        </div>
+                        <div class="field" id="weather-other-info">
+                            <p id="humidity"></p>
+                            <p id="wind"></p>
+                            <p id="visibility"></p>
+                        </div>
+                        <!-- #weather-other-info -->
+                    </div>
+                    <!-- #weather-container -->
+                </div>
+                <!-- weather-wrapper -->
+            </aside>
+        </div>
+
+        <footer class="hidden">
+            <div id="music-container" class="box">
+                <h3 id="music-title"></h3>
+                <div id="music-playtime-wrapper">
+                    <span id="music-current-time"></span>
+                    <input type="range" value="" id="music-playtime" />
+                    <span id="music-end-time"></span>
+                </div>
+
+                <ul id="music-controller">
+                    <li id="music-icon">
+                        <i class="fa-solid fa-compact-disc"></i>
+                    </li>
+                    <li id="music-backward">
+                        <i class="fa-solid fa-backward"></i>
+                    </li>
+                    <li id="music-play">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </li>
+                    <li id="music-pause" class="hidden">
+                        <i class="fa-regular fa-circle-pause"></i>
+                    </li>
+                    <li id="music-forward">
+                        <i class="fa-solid fa-forward"></i>
+                    </li>
+                    <li id="music-volume">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </li>
+                    <li id="music-mute" class="hidden">
+                        <i class="fa-solid fa-volume-xmark"></i>
+                    </li>
+                    <li id="music-volume-slider">
+                        <input
+                            type="range"
+                            min="1"
+                            max="100"
+                            value="100"
+                            class="slider"
+                            id="volume-range"
+                        />
+                    </li>
+                </ul>
+                <div id="music-player"></div>
+            </div>
+        </footer>
+        <div id="bookmark-modal" class="hidden">
+            <form id="bookmark-form" class="box">
+                <p>북마크 추가</p>
+                <div class="field">
+                    <label for="bookmark-url">URL</label>
+                    <input
+                        id="bookmark-url"
+                        type="url"
+                        name="url"
+                        placeholder="ex) https://google.com"
+                        required
+                    />
+                </div>
+                <div class="field">
+                    <label for="bookmark-name">Name</label>
+                    <input
+                        id="bookmark-name"
+                        type="text"
+                        placeholder="Write Bookmark name"
+                        maxlength="25"
+                    />
+                </div>
+                <div class="field">
+                    <button type="button" class="box">Exit</button>
+                    <button type="submit" class="box">Enroll</button>
+                </div>
+            </form>
+        </div>
+        <!-- End of Bookmark-modal -->
+        <div id="bookmark-overlay" class="hidden"></div>
+        <script src="./js/helper.js"></script>
+        <script src="./js/background.js"></script>
+        <script src="./js/login.js"></script>
+        <script src="./js/bookmark.js"></script>
+        <script src="./js/todo.js"></script>
+        <script src="./js/quote.js"></script>
+        <script src="./js/clock.js"></script>
+        <script src="./js/weather.js"></script>
+        <script src="./js/music.js"></script>
+        <script src="./js/app.js"></script>
+    </body>
+</html>

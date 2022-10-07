@@ -1,0 +1,91 @@
+body {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+header {
+    font-size: 1rem;
+    line-height: 1rem;
+    color: black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30%;
+    box-sizing: border-box;
+
+    order: 1;
+}
+header #aside-child-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+header #quote-wrapper {
+    margin-right: 50px;
+}
+header > #greeting-wrapper {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+}
+header #footer-wrapper {
+    width: 50%;
+    align-self: center;
+}
+
+#main-content {
+    position: relative;
+    height: 50%;
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+#main-content #bookmark-wrapper {
+    width: 50%;
+    max-height: 100px;
+    min-height: 100px;
+
+    position: absolute;
+    overflow: visible;
+
+    flex: 0 0.2;
+}
+#main-content #bookmark-container {
+    overflow-x: visible;
+    flex-wrap: nowrap;
+}
+#main-content #bookmark-container li {
+    flex-shrink: 0;
+}
+#main-content #bookmark-container li i {
+    bottom: -10px;
+    left: 50%;
+    right: auto;
+    top: auto;
+}
+#main-content #todo-wrapper {
+    width: 80%;
+    top: 20%;
+    position: relative;
+    flex: 0 0.8 500px;
+}
+#main-content #todo-wrapper ul {
+    max-height: 350px;
+}
+#main-content aside:last-child {
+    position: absolute;
+    width: 0;
+    height: 0;
+    min-height: 0;
+    min-width: 0;
+}
+footer {
+    order: 2;
+}
