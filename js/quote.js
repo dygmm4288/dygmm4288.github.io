@@ -270,6 +270,10 @@ let timer,
     currentIdx = 0;
 
 function goToSlide(idx) {
+    if (!quoteContainer.hasChildNodes()) {
+        paintQuote();
+    }
+
     styleLeft(slideContainer, `${idx * -100}%`);
     currentIdx = idx;
 }
